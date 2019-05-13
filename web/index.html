@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html ng-app="index">
+
+<head>
+	<meta charset="utf-8" />
+	<title>主页</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+	<script src="js/angular.min.js"></script>
+	<script src="js/common.js"></script>
+	<script src="js/vData.js"></script>
+	<script src="js/index.js"></script>
+	
+</head>
+
+<body ng-controller="mainController">
+
+	<div class='main'>
+		今天的题目：
+
+		<ul>
+			<li ng-repeat="ques in questions">
+				<a ng-href="./question.html?id={{ques.id}}">{{ques.id}}. {{ques.title}}</a> 
+
+			</li>
+		</ul>
+
+		今天共做题：{{acnum}}道，任务计划内完成 {{acshouldnum}}/{{shouldnum}} 道！
+	</div>
+
+	<div class='right'>
+		<div><a ng-href="./insert.html">录入题目</a></div>
+		<div><a ng-href="./personal.html">定制计划</a></div>
+		<div><a ng-href="#" ng-click="reset()">重新出题</a></div>
+	</div>
+
+</body>
+
+<style>
+	body{
+		width: 100%;
+	}
+	.main{
+		float: left;
+		width: 90%;
+	}
+	.right{
+		float: right;
+		width: 10%;
+	}
+</style>
+
+</html>
